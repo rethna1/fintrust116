@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MF Distributor Landing Page – Demo</title>
+
+<!-- Bootstrap CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+/* ---------------------------
+   COLOUR SYSTEM (EDIT ONLY HERE)
+----------------------------- */
+:root {
+  --primary:#00a37a;
+  --primary-dark:#008f6b;
+
+  --btn-green:#00a37a;
+  --btn-green-dark:#008a62;
+
+  --text-dark:#1e293b;
+  --text-light:#ffffff;
+
+  --bg-light:#f8f9fa;
+  --bg-white:#ffffff;
+}
+
+/* ---------------------------
+   GLOBAL STYLING
+----------------------------- */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* HEADER */
+header {
+  background: var(--bg-white);
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* LOGO BOX */
+.round-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 0.75rem;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  text-align:center;
+  padding:80px 20px;
+  background:var(--bg-white);
+}
+
+.hero h1 {
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--text-dark);
+}
+
+.hero p {
+  font-size:1.1rem;
+  max-width:650px;
+  margin:10px auto 25px;
+  color:#555;
+}
+
+/* BUTTON */
+.btn-main {
+  background:var(--btn-green);
+  color:#fff !important;
+  padding:14px 34px;
+  font-size:1.1rem;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn-main:hover {
+  background:var(--btn-green-dark);
+  color:#fff !important;
+}
+
+/* SECTION TITLE */
+.section-title {
+  font-size:2rem;
+  text-align:center;
+  font-weight:700;
+  margin-bottom:25px;
+  color:var(--text-dark);
+}
+
+/* FEATURE BOX */
+.feature-box {
+  background:var(--bg-white);
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  text-align:center;
+  height:100%;
+}
+
+.feature-box h4 {
+  font-weight:600;
+  color:var(--primary);
+}
+
+/* PRICE BOX */
+.price-box {
+  background:var(--bg-white);
+  padding:35px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  text-align:center;
+}
+
+.price {
+  font-size:2.4rem;
+  font-weight:700;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+footer {
+  margin-top:50px;
+  background:var(--bg-white);
+  padding:25px;
+  text-align:center;
+  font-size:0.9rem;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container d-flex align-items-center">
+    <div class="round-logo">FC</div>
+    <h2 style="font-weight:700; color:var(--primary); margin:0;">FinTrust Creations</h2>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Grow Your AUM with a Professional Mutual Fund Landing Page</h1>
+  <p>Get a fully branded online investment page with calculators, KYC tools, and custom AMC deep links. Share it with clients and start getting instant SIPs.</p>
+  <a href="#features" class="btn-main">View Features</a>
+</section>
+
+<!-- FEATURES SECTION -->
+<section id="features" class="container py-5">
+  <h2 class="section-title">What the Distributor Gets</h2>
+
+  <div class="row g-4">
+
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Personalised Landing Page</h4>
+        <p>Branded with distributor’s name, ARN, logo & colours.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ 4 MF Calculators</h4>
+        <p>SIP, Lumpsum, SWP & Goal calc ready inside the page.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Invest Online Buttons</h4>
+        <p>AMC deep-links with distributor ARN for SIP/Lumpsum.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Lead Capture Form</h4>
+        <p>Clients can submit message directly to distributor email.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Share on WhatsApp</h4>
+        <p>Link can be shared to clients & groups instantly.</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Mobile Friendly</h4>
+        <p>Fully responsive & lightweight for fast loading.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICE SECTION -->
+<section class="container py-5">
+  <h2 class="section-title">Pricing</h2>
+
+  <div class="price-box">
+    <div class="price">₹5000</div>
+    <p>One-time payment. No renewal. No hidden charges.</p>
+
+    <ul style="list-style:none; padding:0; margin-top:20px; font-size:1rem;">
+      <li>✔ Personalised design</li>
+      <li>✔ Lifetime hosting support</li>
+      <li>✔ 1–2 edits anytime</li>
+      <li>✔ AMC buttons setup</li>
+      <li>✔ Calculator integration</li>
+      <li>✔ <strong>₹150 per scheme update on request</strong></li>
+    </ul>
+
+    <a href="mailto:fintrustmf@gmail.com" class="btn-main" style="margin-top:20px; display:inline-block;">Contact to Get Your Page</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © <span id="year"></span> FinTrust Creations. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
