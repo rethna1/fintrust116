@@ -30,7 +30,7 @@
    GLOBAL STYLING
 ----------------------------- */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif';
   background: var(--bg-light);
   color: var(--text-dark);
 }
@@ -147,6 +147,37 @@ footer {
   font-size:0.9rem;
   color:#666;
 }
+/* PHONE PREVIEW SECTION */
+.phone-frame {
+  width: 340px;
+  height: 600px;
+  border: 6px solid #111;      /* thinner border */
+  border-radius: 28px;          /* smoother corners */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* softer shadow */
+}
+
+.phone-frame::before {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+  width: 80px;
+  height: 6px;
+  background: #222;
+  border-radius: 3px;
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 </style>
 </head>
 
@@ -218,6 +249,28 @@ footer {
   </div>
 </section>
 
+<!-- PREVIEW SECTION -->
+<section class="container py-5">
+  <h2 class="section-title">Live Page Preview</h2>
+
+  <div class="preview-wrapper d-flex justify-content-center">
+    <div class="phone-frame">
+
+      <!-- SCROLLABLE MOBILE PREVIEW -->
+      <div style="width:100%; height:100%; overflow-y:scroll;">
+
+        <!-- INSERTED SELLING IMAGE HERE -->
+        <img 
+          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrp8IGUTDg2AyjdWB_k-i9AZwfTXXoX8iKyI-zcCVqNFCRF_kMBgb5oNl1JOtXDFbupikjaA1Hb8-6pIypqK5SInE5lOLjDi41naQmrYVNCZMfxDRbM-SQMKyOSZBQarWvpoFKtAO20ReJbFdON1q2lNaBUoeDkyE6kDlHy3oQw1fIVSRGVFE-i6HemO_A/s8640/IMG_4668.jpeg"
+          style="width:100%; height:auto; display:block;"
+        />
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- PRICE SECTION -->
 <section class="container py-5">
   <h2 class="section-title">Pricing</h2>
@@ -241,7 +294,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  © <span id="year"></span> FinTrust Creations. All Rights Reserved.
+  ©️ <span id="year"></span> FinTrust Creations. All Rights Reserved.
 </footer>
 
 <script>
