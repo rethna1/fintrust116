@@ -10,7 +10,7 @@
 
 <style>
 /* ---------------------------
-   COLOUR SYSTEM (EDIT ONLY HERE)
+   COLOUR SYSTEM
 ----------------------------- */
 :root {
   --primary:#00a37a;
@@ -26,20 +26,32 @@
   --bg-white:#ffffff;
 }
 
-/* ---------------------------
-   GLOBAL STYLING
------------------------------ */
+/* GLOBAL */
 body {
-  font-family: 'Inter', sans-serif';
+  font-family: 'Inter', sans-serif;
   background: var(--bg-light);
   color: var(--text-dark);
+  margin:0;
 }
 
 /* HEADER */
 header {
   background: var(--bg-white);
-  padding: 15px 0;
+  padding: 12px 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position:sticky;
+  top:0;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* left: logo + title */
+.brand-left {
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 /* LOGO BOX */
@@ -53,14 +65,74 @@ header {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  margin-right: 10px;
+  margin-right: 0;
 }
 
-.logo-text {
-  font-size: 0.75rem;
-  line-height: 1.1;
-  font-weight: 600;
+/* title text */
+.brand-title {
+  font-weight:700;
+  color:var(--primary);
+  margin:0;
+  font-size:1.05rem;
 }
+
+/* hamburger and menu container (right) */
+.nav-actions {
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+/* hamburger button */
+.hamburger {
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  cursor:pointer;
+  border:1px solid #e6e6e6;
+  background:#fff;
+  box-shadow:none;
+}
+
+/* three lines */
+.hamburger .bar {
+  width:20px;
+  height:2px;
+  background:#111827;
+  margin:3px 0;
+  border-radius:2px;
+}
+
+/* dropdown menu */
+.nav-dropdown {
+  position:absolute;
+  right:0;
+  top:46px;
+  background:var(--bg-white);
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  overflow:hidden;
+  min-width:180px;
+  display:none;
+}
+
+/* show */
+.nav-dropdown.show { display:block; }
+
+/* menu items */
+.nav-dropdown a {
+  display:block;
+  padding:12px 16px;
+  color:var(--text-dark);
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:1px solid #f1f1f1;
+}
+.nav-dropdown a:last-child { border-bottom:none; }
+.nav-dropdown a:hover { background:#f3fff6; color:var(--btn-green-dark); }
 
 /* HERO */
 .hero {
@@ -91,6 +163,7 @@ header {
   border-radius:8px;
   text-decoration:none;
   font-weight:600;
+  display:inline-block;
 }
 
 .btn-main:hover {
@@ -138,7 +211,24 @@ header {
   margin-bottom:10px;
 }
 
-/* FOOTER */
+/* PHONE PREVIEW SECTION */
+.phone-frame {
+  width: 340px;
+  height: 600px;
+  border: 2px solid #999; /* user asked thicker -> moderate / professional */
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Footer */
 footer {
   margin-top:50px;
   background:var(--bg-white);
@@ -147,36 +237,58 @@ footer {
   font-size:0.9rem;
   color:#666;
 }
-/* PHONE PREVIEW SECTION */
-.phone-frame {
-  width: 340px;
-  height: 600px;
-  border: 6px solid #111;      /* thinner border */
-  border-radius: 28px;          /* smoother corners */
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* softer shadow */
+
+/* Contact card */
+.contact-card {
+  background: #e5f6f2;
+  width: 92%;
+  max-width: 380px;
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 18px;
+  box-sizing: border-box;
 }
 
-.phone-frame::before {
-  content: "";
-  width: 60px;
-  height: 4px;
-  background: #222;
-  border-radius: 2px;
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
+.contact-card h3 {
+  text-align: center;
+  color: #0d1b2a;
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: 700;
 }
-  width: 80px;
-  height: 6px;
-  background: #222;
-  border-radius: 3px;
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
+
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.contact-card textarea { height:110px; }
+
+/* contact submit button uses root variable */
+.contact-card button {
+  width: 100%;
+  padding: 15px;
+  background: var(--btn-green);
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.contact-card button:hover { background: var(--btn-green-dark); }
+
+/* small responsive tweaks */
+@media (min-width: 768px) {
+  .nav-links-inline { display:flex; gap:18px; align-items:center; }
+  .nav-dropdown { right:16px; top:56px; }
 }
 </style>
 </head>
@@ -185,9 +297,28 @@ footer {
 
 <!-- HEADER -->
 <header>
-  <div class="container d-flex align-items-center">
+  <div class="brand-left">
     <div class="round-logo">FC</div>
-    <h2 style="font-weight:700; color:var(--primary); margin:0;">FinTrust Creations</h2>
+    <h2 class="brand-title">FinTrust Creations</h2>
+  </div>
+
+  <div class="nav-actions">
+    <!-- hamburger -->
+    <div id="hamburgerBtn" class="hamburger" aria-expanded="false" aria-label="Open menu">
+      <div style="display:flex; flex-direction:column; align-items:center;">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+
+    <!-- dropdown menu -->
+    <div id="navDropdown" class="nav-dropdown" role="menu" aria-hidden="true">
+      <!-- these links scroll to sections already present in page -->
+      <a href="#features" data-target="features">Calculator</a>
+      <a href="#about" data-target="about">About</a>
+      <a href="#contact-container" data-target="contact-container">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -207,7 +338,7 @@ footer {
     <div class="col-md-6 col-lg-4">
       <div class="feature-box">
         <h4>✔ Personalised Landing Page</h4>
-        <p>Branded with distributor’s name, ARN, logo & colours.</p>
+        <p>Branded with distributor’s name, ARN, logo & heading.</p>
       </div>
     </div>
 
@@ -248,25 +379,68 @@ footer {
 
   </div>
 </section>
+   <h2 class="section-title">Why Every Distributor Needs This</h2>
+<div class="row g-4">
 
+    <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Benefits of Distributor</h4>
+        <p>	<div class="justified">
+          Build trust with new investors, 
+	Save time explaining calculations, 
+	Easy for clients to contact you, 
+	Professional digital identity, 
+	Helps in increasing AUM,
+	Looks better than sharing scattered links.</div>
+        </p>
+      <style>
+.justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+      </div>
+    </div>
+  <!-- WHAT'S INCLUDED -->
+<section style="padding:38px 18px; background:#f7fff7;">
+  <div class="container">
+    <h2 class="section-title">FAQs</h2>
+    <ul style="max-width:900px; margin:0 auto; font-size:1.03rem; line-height:1.7;">
+      <div class="justified">
+      <li>Q. Is it mobile-responsive?</li>
+       <li>Yes, the page is fully optimised for mobile.</li>
+      <li>Q. Can I share it on WhatsApp?</li>
+      <li>Yes, your link works directly on WhatsApp.</li>
+      <li>Q. Can clients invest directly from the page?</li>
+       <li>Yes, AMC deep links (SIP/Lumpsum) are added.</li>
+      <li>Q. Will I need to renew every year?</li>
+      <li>No. One-time payment only.</li>
+      <li>Q. How long does setup take?</li>
+      <li>1–2 days after receiving details.</li>
+      </div>
+    <style>
+.justified {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+    </ul>
+  </div>
+</section>
 <!-- PREVIEW SECTION -->
 <section class="container py-5">
   <h2 class="section-title">Live Page Preview</h2>
 
   <div class="preview-wrapper d-flex justify-content-center">
     <div class="phone-frame">
-
       <!-- SCROLLABLE MOBILE PREVIEW -->
       <div style="width:100%; height:100%; overflow-y:scroll;">
-
-        <!-- INSERTED SELLING IMAGE HERE -->
         <img 
           src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrp8IGUTDg2AyjdWB_k-i9AZwfTXXoX8iKyI-zcCVqNFCRF_kMBgb5oNl1JOtXDFbupikjaA1Hb8-6pIypqK5SInE5lOLjDi41naQmrYVNCZMfxDRbM-SQMKyOSZBQarWvpoFKtAO20ReJbFdON1q2lNaBUoeDkyE6kDlHy3oQw1fIVSRGVFE-i6HemO_A/s8640/IMG_4668.jpeg"
           style="width:100%; height:auto; display:block;"
+          alt="preview image"
         />
-
       </div>
-
     </div>
   </div>
 </section>
@@ -281,14 +455,45 @@ footer {
 
     <ul style="list-style:none; padding:0; margin-top:20px; font-size:1rem;">
       <li>✔ Personalised design</li>
-      <li>✔ Lifetime hosting support</li>
-      <li>✔ 1–2 edits anytime</li>
+ 
       <li>✔ AMC buttons setup</li>
       <li>✔ Calculator integration</li>
       <li>✔ <strong>₹150 per scheme update on request</strong></li>
     </ul>
 
-    <a href="mailto:fintrustmf@gmail.com" class="btn-main" style="margin-top:20px; display:inline-block;">Contact to Get Your Page</a>
+    <a href="https://forms.gle/YWvkTZvmJ89bZciz8" class="btn-main" style="margin-top:20px; display:inline-block;">Get Your Page</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding: 40px 20px; max-width: 800px; margin: auto;">
+  <h2 style="color:#4FA686; font-size:28px; font-weight:700; text-align:center; margin-bottom:25px;">
+    About FinTrust Creations
+  </h2>
+
+  <p style="font-size: 17px; color: #444; text-align: justify; margin-bottom: 15px;">
+    FinTrust Creations is a professional digital initiative and designed to empower financial advisors and investors with high-quality, branded mutual fund calculators.
+  </p>
+
+  <p style="font-size: 17px; color: #444; text-align: justify; margin-bottom: 15px;">
+    Our mission is to simplify financial planning through smart, mobile-responsive, and easy-to-use tools — helping you make informed decisions and build trust with your clients.
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-container">
+  <h2 id="contact-title" style="font-size:32px; margin-left:20px; color:#0d1b2a; font-weight:700;">Get In Touch</h2>
+
+  <div class="contact-card">
+    <h3>Send Message</h3>
+
+    <form id="contactForm" action="mailto:fintrustcreations@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Name" required>
+      <input type="email" name="Email" placeholder="Email" required>
+      <textarea name="Message" placeholder="Write Your Message" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </section>
 
@@ -298,8 +503,117 @@ footer {
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  // update footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Hamburger menu toggle and auto-close on selection/outside click
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const navDropdown = document.getElementById('navDropdown');
+
+  function closeMenu() {
+    navDropdown.classList.remove('show');
+    hamburgerBtn.setAttribute('aria-expanded','false');
+    navDropdown.setAttribute('aria-hidden','true');
+  }
+  function openMenu() {
+    navDropdown.classList.add('show');
+    hamburgerBtn.setAttribute('aria-expanded','true');
+    navDropdown.setAttribute('aria-hidden','false');
+  }
+
+  hamburgerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (navDropdown.classList.contains('show')) closeMenu(); else openMenu();
+  });
+
+  // close when clicking a menu item — also scrolls to section (native anchor)
+  navDropdown.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', (ev) => {
+      // allow the default anchor behavior to scroll, then close menu
+      setTimeout(() => closeMenu(), 50);
+    });
+  });
+
+  // close when clicking outside
+  document.addEventListener('click', (ev) => {
+    if (!navDropdown.contains(ev.target) && !hamburgerBtn.contains(ev.target)) {
+      closeMenu();
+    }
+  });
+
+  // close on Escape key
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') closeMenu();
+  });
+
+  // Optional: close menu on window resize to avoid stuck open on desktop
+  window.addEventListener('resize', () => closeMenu());
 </script>
 
+<!-- Bootstrap JS (kept because you used it before) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Scroll to Top Button (Off-white + Black Icon) -->
+<style>
+#scrollTopBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 25px;
+  width: 55px;
+  height: 55px;
+  background-color: #f8f8f8; /* Off-white */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scrollTopBtn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: #000000; /* BLACK arrow */
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#scrollTopBtn:hover {
+  background-color: #e8e8e8;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+</style>
+
+<button onclick="topFunction()" id="scrollTopBtn" title="Go to top">
+  <svg viewBox="0 0 24 24">
+    <path d="M6 15l6-6 6 6" />
+  </svg>
+</button>
+
+<script>
+window.onscroll = function() {
+  let btn = document.getElementById("scrollTopBtn");
+  if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+    btn.classList.add("show");
+  } else {
+    btn.classList.remove("show");
+  }
+};
+
+function topFunction() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
