@@ -350,25 +350,25 @@ header {
   <h2 class="section-title">Why Every Distributor Needs This</h2>
 
   <div class="row g-4">
-
-    <div class="col-md-6 col-lg-4">
-      <div class="feature-box justified">
-        <h4>✔ Distributor Benefits</h4>
-        <ul>
-          <li>Build trust with new investors</li>
-          <li>Save time explaining calculations</li>
-          <li>Easy for clients to contact you</li>
-          <li>Professional digital identity</li>
-          <li>Helps increase AUM</li>
-          <li>Better than scattered links</li>
-        </ul>
+  <div class="col-md-6 col-lg-4">
+      <div class="feature-box">
+        <h4>✔ Benefits of Distributor</h4>
+        <li> Build trust with new investors</li>
+<li> Save
+calculations
+time
+  explaining</li>
+        <li>Easy for clients to contact you</li>
+        <li>Professional digital identity</li>
+        <li>Helps increase AUM</li>
+        <li>Better than scattered links</li>
       </div>
     </div>
 
     <div class="col-md-6 col-lg-4">
       <div class="feature-box">
         <h4>✔ Convert More Leads Automatically</h4>
-        <p>Investors calculate → understand → contact you instantly.</p>
+        <p>Investors calculate → understand → contact you instantly or invest online.</p>
       </div>
     </div>
 
@@ -447,20 +447,100 @@ header {
   </h2>
 
   <p class="justified" style="font-size:17px; color:#444;">
-    FinTrust Creations designs premium, branded mutual fund calculators for distributors and investors.
+    FinTrust Creations designs premium, branded mutual fund landing page and calculators for distributors and investors.
   </p>
   <p class="justified" style="font-size:17px; color:#444;">
     Our mission is to simplify financial planning through mobile-friendly tools that help clients understand and invest confidently.
   </p>
 </section>
+<style>
+  :root {
+    --btn-green:#00a37a;       /* SAME AS LANDING PAGE */
+    --btn-green-dark:#008a62;  /* SAME AS LANDING PAGE HOVER */
+  }
 
-<!-- CONTACT -->
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  #contact-container {
+    padding: 30px 0;
+    text-align: left;
+  }
+
+  #contact-title {
+    font-size: 32px;
+    margin-left: 20px;
+    color: #0d1b2a;
+    font-weight: 700;
+  }
+
+  .contact-card {
+    background: #e5f6f2;
+    width: 92%;
+    max-width: 380px;
+    margin: 25px auto;
+    padding: 30px;
+    border-radius: 18px;
+    box-sizing: border-box;
+  }
+
+  .contact-card h3 {
+    text-align: center;
+    color: #0d1b2a;
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 700;
+  }
+
+  .contact-card input,
+  .contact-card textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .contact-card textarea {
+    height: 110px;
+  }
+
+  /* BUTTON WITH LANDING PAGE GREEN */
+  .contact-card button {
+    width: 100%;
+    padding: 15px;
+    background: var(--btn-green);
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .contact-card button:hover {
+    background: var(--btn-green-dark);
+  }
+</style>
+
+
 <section id="contact-container">
-  <h2 style="font-size:32px; margin-left:20px; color:#0d1b2a; font-weight:700;">Get In Touch</h2>
+  <h2 id="contact-title">Get In Touch</h2>
 
   <div class="contact-card">
     <h3>Send Message</h3>
-    <form action="mailto:fintrustcreations@gmail.com" method="POST" enctype="text/plain">
+
+    <form
+      id="contactForm"
+      action="mailto:fintrustcreations@gmail.com"
+      method="POST"
+      enctype="text/plain"
+    >
       <input type="text" name="Name" placeholder="Name" required>
       <input type="email" name="Email" placeholder="Email" required>
       <textarea name="Message" placeholder="Write Your Message" required></textarea>
@@ -469,6 +549,15 @@ header {
     </form>
   </div>
 </section>
+
+<script>
+  // Clear fields after clicking submit
+  document.getElementById("contactForm").addEventListener("submit", function () {
+    setTimeout(() => {
+      document.getElementById("contactForm").reset();
+    }, 200);
+  });
+</script>
 
 <!-- DISCLAIMER -->
 <section style="padding:25px 20px;">
